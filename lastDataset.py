@@ -219,6 +219,8 @@ class dataset:
   def reverse(self,x,ents):
     ents = ents[0]
     vocab = self.TGT.vocab
+
+    print (ents)
     tmp = []
     for j,y in enumerate(x):
         print (y)
