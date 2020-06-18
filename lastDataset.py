@@ -201,7 +201,7 @@ class dataset:
       x.tgt = x.out
       x.out = [y.split("_")[0]+">" if "_" in y else y for y in x.out]
       x.sordertgt = torch.LongTensor([int(y)+3 for y in x.sorder.split(" ")])
-      x.sorder = [[int(z) for z in y.strip().split(" ")] for y in x.sorder.split("-1")[:-1]]
+      x.sorder = [[int(z) for z in y.strip().split(" ") if len(z)>0] for y in x.sorder.split("-1")[:-1]]
     ds.fields["tgt"] = self.TGT
     ds.fields["rawent"] = data.RawField()
     ds.fields["sordertgt"] = data.RawField()
