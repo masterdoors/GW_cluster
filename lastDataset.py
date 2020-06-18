@@ -226,6 +226,7 @@ class dataset:
             print(vocab.itos[y]) 
             tmp.append(vocab.itos[y])
         else:
+            print ("Entity is in action!")
             print (ents[y-len(vocab.itos)])
             tmp.append(ents[y-len(vocab.itos)].upper())
 
