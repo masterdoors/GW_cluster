@@ -217,20 +217,16 @@ class dataset:
     return es
 
   def reverse(self,x,ents):
-    ents = ents[0]
+    ents = ents[0].split(";")
     vocab = self.TGT.vocab
 
-    print (ents)
     tmp = []
     for j,y in enumerate(x):
         print (y)
         if y<len(vocab.itos):
-            print(vocab.itos[y]) 
             tmp.append(vocab.itos[y])
         else:
-            print ("Entity is in action!")
-            print (ents[y-len(vocab.itos)])
-            tmp.append(ents[y-len(vocab.itos)].upper())
+            tmp.append(ents[y-len(vocab.itos)])
 
     s = ' '.join(tmp)
 
