@@ -217,12 +217,13 @@ class dataset:
     return es
 
   def reverse(self,x,ents):
+    print (ents[0)
     ents = ents[0][0].split(";")
     vocab = self.TGT.vocab
 
     tmp = []
     for j,y in enumerate(x):
-        print (y)
+        #print (y)
         if y<len(vocab.itos):
             tmp.append(vocab.itos[y])
         else:
