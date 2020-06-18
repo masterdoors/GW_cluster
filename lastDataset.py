@@ -219,7 +219,19 @@ class dataset:
   def reverse(self,x,ents):
     ents = ents[0]
     vocab = self.TGT.vocab
-    s = ' '.join([vocab.itos[y] if y<len(vocab.itos) else ents[y-len(vocab.itos)].upper() for j,y in enumerate(x)])   
+    tmp = []
+    for j,y in enumerate(x):
+        print (y)
+        if y<len(vocab.itos):
+            print(vocab.itos[y]) 
+            tmp.append(vocab.itos[y])
+        else:
+            print (ents[y-len(vocab.itos)])
+            tmp.append(ents[y-len(vocab.itos)].upper())
+
+    s = ' '.join(tmp)
+
+    #s = ' '.join([vocab.itos[y] if y<len(vocab.itos) else ents[y-len(vocab.itos)].upper() for j,y in enumerate(x)])   
     #s = ' '.join([vocab.itos[y] if y<len(vocab.itos) else ents[y-len(vocab.itos)] for j,y in enumerate(x)])   
     if "<eos>" in s: s = s.split("<eos>")[0]
     return s
