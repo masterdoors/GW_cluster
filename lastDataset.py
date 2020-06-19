@@ -217,8 +217,7 @@ class dataset:
     return es
 
   def reverse(self,x,ents):
-    print (ents[0])
-    ents = ents[0][0].split(";")
+    ents = ents[0]
     vocab = self.TGT.vocab
 
     tmp = []
