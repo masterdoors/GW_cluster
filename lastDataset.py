@@ -226,7 +226,10 @@ class dataset:
         if y<len(vocab.itos):
             tmp.append(vocab.itos[y])
         else:
-            tmp.append(ents[y-len(vocab.itos)])
+            if y-len(vocab.itos) < len(ents):
+                tmp.append(ents[y-len(vocab.itos)])
+            else:
+                print ("Wrong entity number:", y-len(vocab.itos)," of ",len(ents))
 
     s = ' '.join(tmp)
 
